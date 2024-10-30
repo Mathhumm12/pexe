@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Perguntas e Respostas</title>
+    <link rel="stylesheet" href="STYLES.CSS">
+</head>
+<body>
+    
+    
+    
+    <div class="container">
+        <style>
+           
+    
+            .rainButton {
+                background-color: cyan;
+                border: none;
+                border-radius: 15px; /* Bordas arredondadas */
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                position: relative;
+                z-index: 1; /* Para que o botão fique acima das imagens */
+            }
+    
+            img {
+                position: absolute;
+                width: 110px; /* Ajuste o tamanho da imagem */
+                pointer-events: none; /* Para que a imagem não interfira nos cliques */
+            }
+        </style>
+    </head>
+    <body>
+    
+        <button class="rainButton">DENIS</button>
+    
+        <!-- Exemplo de imagem estática -->
+        <img src= 11zon_cropped.png alt="Côcô" style="display:none;" id="cocoImage">
+    
+        <script>
+            const button = document.querySelector('.rainButton');
+            const cocoImage = document.getElementById('cocoImage');
+    
+            button.addEventListener('click', () => {
+                const numberOfImages = 20; // Número de imagens que vão "cair"
+                for (let i = 0; i < numberOfImages; i++) {
+                    createCocoImage();
+                }
+            });
+    
+            function createCocoImage() {
+                const img = cocoImage.cloneNode(); // Clona a imagem estática
+                img.style.display = 'block'; // Exibe a imagem clonada
+    
+                const randomX = Math.random() * window.innerWidth;
+                img.style.left = `${randomX}px`;
+                img.style.top = `-50px`; // Começar acima da tela
+    
+                document.body.appendChild(img);
+    
+                // Animação de queda
+                let dropInterval = setInterval(() => {
+                    const currentTop = parseFloat(img.style.top);
+                    if (currentTop < window.innerHeight) {
+                        img.style.top = `${currentTop + 5}px`; // Velocidade da queda
+                    } else {
+                        clearInterval(dropInterval);
+                        document.body.removeChild(img); // Remove a imagem após cair
+                    }
+                }, 50); // Ajuste o intervalo de queda
+            }
+        </script>
+        <h2>ESTUDO MEDIEVAL</h2>
+        
+        <div id="question-container">
+            
+            <p id="question">Aqui vai a pergunta?</p>
+            <div id="options"></div>
+        </div>
+        <button id="next-button" class="hidden">Próxima Pergunta</button>
+        <div id="result"></div>
+    </div>
+    <div id="score-container">
+        Pontuação: <span id="score">0</span>
+
+    </div>
+    
+
+    <script src="SCRIPT.JS"></script>
+</body>
+</html>

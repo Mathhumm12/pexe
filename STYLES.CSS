@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTo2AR4v6QIRcdlVefuV1YHkMXsmKQmXAIwQ&s);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.option {
+    background-color: cadetblue;
+    border-color: #000;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    border: #000;
+}
+
+.option:hover {
+    background-color: #d0d0d0;
+    border: #000;
+}
+
+.correct {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+}
+
+.incorrect {
+    background-color: #f44336; /* Vermelho */
+    color: white;
+}
+
+#final-image {
+    margin-top: 20px;
+    max-width: 100%;
+}
+#score-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    
+    border: 2px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Para garantir que fique acima de outros elementos */
+}
+
